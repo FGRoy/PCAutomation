@@ -7,5 +7,6 @@
 ## RElative paths for csv formated list of users and Partner Center domains, stablish to the dir where script is running 
 ## Pleae make sure all needed csv files are located on the captured folder and formated matching the requirements.
 
+## Users deletion Script depends on users having been created using the onboarding script.
 ## Ignore uncaptured errors and review results for the operation.
 ## Software is provided with no guarantee and results may vary depending on your specifications.
