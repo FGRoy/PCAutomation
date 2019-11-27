@@ -4,7 +4,7 @@
 Connect-MsolService
 $customers = Get-MsolPartnerContract -All
 Write-Host "Found $($customers.Count) customers for $((Get-MsolCompanyInformation).displayname)." -ForegroundColor DarkGreen
-#$CSVpath = "C:\Temp\UserLicenseReport.csv"
+#Add prompt for Customer Account
 $CSVpath = $PSScriptRoot + '\UserLicenseReport.csv'
   
 foreach ($customer in $customers) {
