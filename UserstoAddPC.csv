@@ -1,3 +1,3 @@
-﻿FirstName,LastName,RoleName,Position
-Test,Account,User Account Administrator,[EMEA MS L2]
-Test,Billing,Billing Administrator,[EMEA Billing]
+﻿FirstName,LastName,RoleName,AdminGroup,Position
+Test,Account,User Account Administrator,AdminAgents,[EMEA MS L2]
+Test,Billing,Billing Administrator,HelpdeskAgents,[EMEA Billing]

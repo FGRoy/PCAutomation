@@ -28,7 +28,7 @@ Import-Csv -Path $PCDomains_Csv |
     $UsageLocationPC = $_.UsageLocation
     
     ## * # Un-Comment next two lines for user and password no prompt for every PC Account # * #
-    Write-Host "`n- Login Credentials Used for Partner Center:" $FullUser
+    Write-Host "`n- Login Credentials Used for Partner Center:" $FullUser "`n"
     #$O365Cred = New-Object System.Management.Automation.PSCredential ($FullUser , $SecPass)
     
     # Conexion to Office 365 Partner Center Account
@@ -40,7 +40,8 @@ Import-Csv -Path $PCDomains_Csv |
                 Try { 
                 $UPN = $_.Firstname + "." + $_.Lastname + $Maildomain
                 $DisplayName = $_.Firstname + " " + $_.Lastname + " " + $_.Position #" [EMEA IMS L1]"
-                
+                $AdminGroup = $_.AdminGroup
+
                 New-MsolUser `
                     -UserPrincipalName $UPN `
                     -FirstName $_.FirstName `
@@ -60,7 +61,8 @@ Import-Csv -Path $PCDomains_Csv |
                 
                 # Add Agent role (*ADD prompt for information)
                 # Obtain UserID for Admin agents group ("AdminAgents","HelpdeskAgents","SalesAgents")
-                $GroupID = Get-MsolGroup | Where-Object { $_.DisplayName -eq “AdminAgents”}
+                #$GroupID = Get-MsolGroup | Where-Object { $_.DisplayName -eq “AdminAgents”}
+				$GroupID = Get-MsolGroup | Where-Object { $_.DisplayName -eq $AdminGroup}
                 # Check users correct memberships
                 # Get-MsolGroupMember -GroupObjectId $GroupID.ObjectId
                 
