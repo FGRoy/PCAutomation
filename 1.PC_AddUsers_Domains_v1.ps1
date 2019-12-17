@@ -5,7 +5,7 @@ Import-Module MSOnline
 ## if MFA enabled please allow some time for the script to complete)..."
 ## * # Un-Comment next three lines comments plus $O365Cred below comments for user and password capture and no prompt # * #
 #$SecUser = Read-Host -Prompt "Enter your partner center account username (before the @) "
-#$SecPass = Read-Host -Prompt "Enter your partner center account password "
+#$SecPass = Read-Host -AsSecureString -Prompt "Enter your partner center account password "
 #$SecPass = ConvertTo-SecureString $SecPass -AsPlainText -Force 
 
 #Path for csv formated list of users and Partner Center domains. RELATIVE PATH to the dir script is running 
